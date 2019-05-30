@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+
+            android:id="@+id/nav_panel"
+            android:icon="@drawable/ic_view"
+            android:title="Panel" />
+        <item
+            android:id="@+id/nawv_actual"
+            android:icon="@drawable/ic_event"
+            android:title="Wiadmości -BETA" />
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_account"
+            android:title="Profil" />
+    </group>
+
+    <item android:title="">
+        <menu>
+            <item
+                android:id="@+id/nav_settings"
+                android:icon="@drawable/ic_settings"
+                android:title="Ustawienia" />
+            <item
+                android:id="@+id/nav_out"
+                android:icon="@drawable/ic_public"
+                android:title="Wyloguj" />
+        </menu>
+    </item>
+
+</menu>

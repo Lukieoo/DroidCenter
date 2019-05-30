@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SplashScreen"
+    android:orientation="vertical"
+    android:background="@color/colorAccent"
+    android:gravity="center"
+
+    >
+
+    <LinearLayout
+        android:background="@drawable/border2"
+        android:layout_width="wrap_content"
+        android:padding="60dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+   <de.hdodenhof.circleimageview.CircleImageView
+
+        android:src="@drawable/bad"
+       android:id="@+id/profile_pic"
+       android:layout_height="175dp"
+       android:layout_width="175dp" />
+    <TextView
+        android:id="@+id/name"
+        android:textAlignment="center"
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/email"
+        android:text=""
+        android:textAlignment="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <ImageButton
+        android:id="@+id/imageButtonnext"
+        style="@android:style/Widget.DeviceDefault.Light.ImageButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:adjustViewBounds="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/shape"
+        android:cropToPadding="true"
+        android:visibility="invisible"
+        android:src="@drawable/ic_rotate"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.93"
+        app:layout_constraintStart_toStartOf="parent"
+        android:contentDescription="@string/todo" />
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/login_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</LinearLayout>

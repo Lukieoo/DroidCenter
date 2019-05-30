@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">DroidCenter</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="First">Panel</string>
+    <string name="facebook_app_id">480618996011186</string>
+    <string name="fb_login_protocol_scheme">fb480618996011186</string>
+    <string name="todo">TODO</string>
+    <string name="zbierz_sw_j_dzienny_bonus">Zbierz swój dzienny bonus</string>
+    <string name="kliknij_w_pude_ko_i_sprawd_co_ci_czeka_dzi">Kliknij w pudełko i sprawdź co cię czeka dziś !</string>
+    <string name="placeholder_message">Placeholder message</string>
+    <string name="nazwa">Nazwa</string>
+    <string name="email_email_com">email@email.com</string>
+    <string name="instagram">Instagram</string>
+    <string name="sklep">Sklep</string>
+    <string name="github">Github</string>
+    <string name="fb">FB</string>
+    <string name="zainteresuj_si">Zainteresuj się :</string>
+    <string name="ilo_droidk_w">Ilość droidków</string>
+    <string name="napisz_wiadomo">Napisz wiadomość</string>
+    <string name="how_are_you_doing_this_is_a_long_message_that_should_probably_wrap">How are you doing? This is a long message that should probably wrap.</string>
+    <string name="rose">Rose</string>
+</resources>

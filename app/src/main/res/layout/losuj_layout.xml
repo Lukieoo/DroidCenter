@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearLayout3"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:background="@drawable/border1"
+    android:elevation="2dp"
+    android:gravity="center"
+
+    android:orientation="vertical"
+    android:padding="20dp"
+
+ >
+
+    <TextView
+        android:id="@+id/textwylosuj"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/border"
+        android:elevation="2dp"
+        android:text="@string/zbierz_sw_j_dzienny_bonus"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+
+        />
+
+    <TextView
+        android:id="@+id/cash"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/image2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/gitf2"
+        android:contentDescription="@string/todo" />
+
+    <TextView
+        android:textColor="@android:color/white"
+        android:id="@+id/texttytul"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/kliknij_w_pude_ko_i_sprawd_co_ci_czeka_dzi"
+        android:textAlignment="center" />
+
+</LinearLayout>
