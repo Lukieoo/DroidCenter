@@ -1,6 +1,7 @@
 package com.anioncode.droidcenter.fragment;
 
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -37,7 +38,7 @@ public class PanelFragment extends Fragment {
 
 
         FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-        transaction.replace(R.id.framelayout, new ActualFragment()).commit();
+        transaction.replace(R.id.framelayout, new WebViewFragment(1)).commit();
 
         imageView1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +63,9 @@ public class PanelFragment extends Fragment {
                 FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
 
                 transaction.replace(R.id.framelayout, new WebViewFragment(3)).commit();
+
+                Intent intent = new Intent(getActivity(), Dashboard_Fragment.class);
+
             }
         });
 

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".SplashScreen"
     android:orientation="vertical"
-    android:background="@color/colorAccent"
+    android:background="@android:color/holo_blue_dark"
     android:gravity="center"
 
     >
@@ -20,9 +20,11 @@
         android:orientation="vertical">
 
 
-   <de.hdodenhof.circleimageview.CircleImageView
 
-        android:src="@drawable/bad"
+   <de.hdodenhof.circleimageview.CircleImageView
+        app:civ_border_color="@color/colorPrimary"
+       app:civ_border_width="1dp"
+        android:src="@drawable/g5363"
        android:id="@+id/profile_pic"
        android:layout_height="175dp"
        android:layout_width="175dp" />
@@ -59,7 +61,13 @@
         android:id="@+id/login_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-
+        <Button
+            android:visibility="invisible"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:text="Odśwież"
+            android:id="@+id/Refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
 </LinearLayout>

@@ -50,10 +50,10 @@ public class WebViewFragment extends Fragment {
         webSettings.setJavaScriptEnabled(true);
 
         if(a==1){
-            myWebView.loadUrl("https://facebook.com/");
+            myWebView.loadUrl("https://www.facebook.com/Anion-Code-115934359788737/");
         }
         if(a==2){
-            myWebView.loadUrl("https://instagram.com/");
+            myWebView.loadUrl("https://www.youtube.com/channel/UCseP9k1DwSAqzZ-iyeAlTvg");
         }
         if(a==3){
             myWebView.loadUrl("https://play.google.com/store/apps/dev?id=5300491392807005874");

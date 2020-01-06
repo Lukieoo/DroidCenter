@@ -1,11 +1,14 @@
 package com.anioncode.droidcenter;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -16,8 +19,10 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -48,6 +53,7 @@ public class SplashScreen extends AppCompatActivity {
 
     private LoginButton loginButton;
     private ImageButton imageButton;
+    private Button refresh;
     private CircleImageView circleImageView;
     private TextView txtName,txtEmail;
 
@@ -77,42 +83,60 @@ public class SplashScreen extends AppCompatActivity {
 //        } catch (PackageManager.NameNotFoundException e) {
 //        } catch (NoSuchAlgorithmException e) {
 //        }
+
         loginButton=findViewById(R.id.login_button);
         txtName=findViewById(R.id.name);
         txtEmail=findViewById(R.id.email);
         circleImageView=findViewById(R.id.profile_pic);
         imageButton=findViewById(R.id.imageButtonnext);
+        refresh=findViewById(R.id.Refresh);
+        if(conection()) {
+            callbackManager = CallbackManager.Factory.create();
+            loginButton.setReadPermissions(Arrays.asList("email", "public_profile"));
 
-        callbackManager= CallbackManager.Factory.create();
-        loginButton.setReadPermissions(Arrays.asList("email","public_profile"));
-        checklogin();
-        imageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intentx = new Intent(SplashScreen.this, MainActivity.class);
-                startActivity(intentx);
-                overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
-                finish();
+            checklogin();
+            imageButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intentx = new Intent(SplashScreen.this, MainActivity.class);
+                    startActivity(intentx);
+                    overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
+                    finish();
 
-            }
-        });
-        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-            @Override
-            public void onSuccess(LoginResult loginResult) {
+                }
+            });
+            loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+                @Override
+                public void onSuccess(LoginResult loginResult) {
 
-            }
+                }
 
-            @Override
-            public void onCancel() {
+                @Override
+                public void onCancel() {
 
-            }
+                }
 
-            @Override
-            public void onError(FacebookException error) {
-                txtName.setText(error.toString());
-            }
-        });
-
+                @Override
+                public void onError(FacebookException error) {
+                    txtName.setText(error.toString());
+                }
+            });
+        }else {
+            Toast.makeText(this,"Brak połączenia. Włącz Wifi.",Toast.LENGTH_LONG).show();
+            loginButton.setVisibility(View.INVISIBLE);
+            txtEmail.setText("Włącz wifi by połączyć się z naszą siecią :)");
+            circleImageView.setImageResource(R.drawable.zd2);
+            refresh.setVisibility(View.VISIBLE);
+            refresh.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                    overridePendingTransition(0, 0);
+                    startActivity(getIntent());
+                    overridePendingTransition(0, 0);
+                }
+            });
+        }
 
     }
     @Override
@@ -127,8 +151,9 @@ public class SplashScreen extends AppCompatActivity {
             if(currentAccessToken==null){
                 txtEmail.setText("");
                 txtName.setText("");
-                circleImageView.setImageResource(R.drawable.bad);
+                circleImageView.setImageResource(R.drawable.g5363);
                 imageButton.setVisibility(View.INVISIBLE);
+                refresh.setVisibility(View.INVISIBLE);
 
             }
             else {
@@ -139,6 +164,7 @@ public class SplashScreen extends AppCompatActivity {
                     @Override
                     public void onAnimationStart(Animation animation) {
                         imageButton.setVisibility(View.VISIBLE);
+                        refresh.setVisibility(View.INVISIBLE);
                     }
 
                     @Override
@@ -174,7 +200,8 @@ public class SplashScreen extends AppCompatActivity {
                     RequestOptions requestOptions=new RequestOptions();
                     requestOptions.dontAnimate();
 
-                    Glide.with(SplashScreen.this).load(image_url).into(circleImageView);
+//                    Glide.with(SplashScreen.this).load(image_url).into(circleImageView);
+                    
 
                     //STATYCZNE ZMIENNE
                     EMAIL=email;
@@ -218,6 +245,18 @@ public class SplashScreen extends AppCompatActivity {
         if(AccessToken.getCurrentAccessToken()!=null){
             loaduserProfile(AccessToken.getCurrentAccessToken());
         }
+    }
+    public boolean conection(){
+        boolean connected = false;
+        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+            //we are connected to a network
+            connected = true;
+        }
+        else
+            connected = false;
+        return connected;
     }
 }
 

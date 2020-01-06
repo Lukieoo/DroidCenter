@@ -61,21 +61,23 @@ public class Profil_space extends AppCompatActivity {
         textView2 = findViewById(R.id.textView2);
         textView1.setText(NAME);
         textView2.setText(EMAIL);
+        droidki = findViewById(R.id.droidki);
+        droidki.setText(String.valueOf(PUNKTY) + " Droidki");
+
 
         sendDroid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT,NAME+" Posiada już "+PUNKTY+" droidek ! ");
+                sendIntent.putExtra(Intent.EXTRA_TEXT,NAME+" Posiada już "+PUNKTY+" droidek ! Dołącz do nas\n https://play.google.com/store/apps/details?id=com.anioncode.droidcenter&hl=pl ");
                 sendIntent.setType("text/plain");
                 startActivity(Intent.createChooser(sendIntent, "DroidCenter"));
 
             }
         });
 
-        droidki = findViewById(R.id.droidki);
-        droidki.setText(String.valueOf(PUNKTY) + " Droidki");
+
 
         Glide.with(Profil_space.this).load(PHOTO_URL).into(imageViewPhoto);
 

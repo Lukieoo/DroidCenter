@@ -1,12 +1,18 @@
 package com.anioncode.droidcenter;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -18,6 +24,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.anioncode.droidcenter.fragment.Dashboard_Fragment;
 import com.anioncode.droidcenter.fragment.PanelFragment;
 import com.anioncode.droidcenter.fragment.Profil_space;
 import com.anioncode.droidcenter.scaledrone.MessangerFragment;
@@ -44,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-
+        window.getDecorView().getWindowVisibleDisplayFrame(rectangle)
         drawer = findViewById(R.id.drawer_layout);
         linearLayout = findViewById(R.id.line1);
 
@@ -76,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new PanelFragment()).commit();
+                    new Dashboard_Fragment()).commit();
             navigationView.setCheckedItem(R.id.nav_panel);
         }
     }
@@ -86,10 +93,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (item.getItemId()) {
             case R.id.nav_panel:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new Dashboard_Fragment()).commit();
+                drawer.closeDrawer(GravityCompat.START);
+                break;
+            case R.id.web:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new PanelFragment()).commit();
                 drawer.closeDrawer(GravityCompat.START);
                 break;
-
             case R.id.nawv_actual:
 
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
@@ -116,7 +127,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //                        new ProfileFragment()).commit();
                 break;
             case R.id.nav_settings:
-                Toast.makeText(this, "W budowie", Toast.LENGTH_SHORT).show();
+
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+                        "mailto","pawkrzysciak@gmail.com", null));
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, NAME);
+                emailIntent.putExtra(Intent.EXTRA_TEXT, "Witaj");
+                startActivity(Intent.createChooser(emailIntent, "Zapytanie"));
+
                 break;
             case R.id.nav_out:
 
@@ -142,4 +159,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             super.onBackPressed();
         }
     }
+
 }

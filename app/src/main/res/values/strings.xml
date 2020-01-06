@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">DroidCenter</string>
+    <string name="app_name">AnionCenter</string>
+    <string name="Youtube">Youtube</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="First">Panel</string>
@@ -17,7 +18,7 @@
     <string name="fb">FB</string>
     <string name="zainteresuj_si">Zainteresuj się :</string>
     <string name="ilo_droidk_w">Ilość droidków</string>
-    <string name="napisz_wiadomo">Napisz wiadomość</string>
+    <string name="napisz_wiadomo">Wiadomość do wszystkich</string>
     <string name="how_are_you_doing_this_is_a_long_message_that_should_probably_wrap">How are you doing? This is a long message that should probably wrap.</string>
     <string name="rose">Rose</string>
 </resources>

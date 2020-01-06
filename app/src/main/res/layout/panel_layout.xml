@@ -14,7 +14,7 @@
         android:layout_marginEnd="0dp"
         android:layout_marginStart="0dp"
         android:layout_marginTop="0dp"
-        android:background="@drawable/bgheader2"
+        android:background="@drawable/rect883"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,10 +25,11 @@
 
     <LinearLayout
         android:id="@+id/linearLayout2"
+        android:elevation="5dp"
         android:layout_width="match_parent"
-        android:layout_height="182dp"
+        android:layout_height="110dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/border1"
         android:orientation="vertical"
@@ -42,10 +43,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="12dp"
             android:text="@string/zainteresuj_si"
-            android:textColor="#FFF"
+            android:textColor="#000"
             android:textSize="16sp" />
         <!--android:textColor="#818181"-->
         <LinearLayout
@@ -76,8 +77,8 @@
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
                     android:text="@string/fb"
-                    android:textColor="#FFF"
-                    android:textSize="16sp" />
+                    android:textColor="#000"
+                    android:textSize="10sp" />
 
             </LinearLayout>
 
@@ -93,17 +94,17 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginBottom="8dp"
-                    android:src="@drawable/istagraam"
+                    android:src="@drawable/youtube"
                     android:contentDescription="@string/todo"/>
 
                 <TextView
-                    android:id="@+id/instagram"
+                    android:id="@+id/Youtube"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
-                    android:text="@string/instagram"
-                    android:textColor="#FFF"
-                    android:textSize="16sp" />
+                    android:text="@string/Youtube"
+                    android:textColor="#000"
+                    android:textSize="10sp" />
 
             </LinearLayout>
             <!--android:textColor="#172646"-->
@@ -128,8 +129,8 @@
                     android:layout_height="wrap_content"
 
                     android:text="@string/sklep"
-                    android:textColor="#FFF"
-                    android:textSize="16sp" />
+                    android:textColor="#000"
+                    android:textSize="10sp" />
 
             </LinearLayout>
 
@@ -154,8 +155,8 @@
                     android:layout_height="wrap_content"
 
                     android:text="@string/github"
-                    android:textColor="#FFF"
-                    android:textSize="16sp" />
+                    android:textColor="#000"
+                    android:textSize="10sp" />
 
             </LinearLayout>
 
